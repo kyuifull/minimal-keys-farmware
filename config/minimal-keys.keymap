@@ -13,8 +13,8 @@
      0 BASE    大西配列
      1 FUNC    数字・F キー           (td_1 ホールド)
      2 SYMBOL  記号・カーソル         (td_2 ホールド)
-     3 TENKEY  テンキー・データロガー (Q ホールド)
-     4 SCROLL  トラックボールでスクロール (R / 左親指 Enter のホールド。minimal-keys_R.overlay の scroll-layers)
+     3 TENKEY  テンキー・データロガー (Q ホールド。トラックボールはスクロール = minimal-keys_R.overlay の scroll-layers)
+     4 SCROLL  R / 左親指 Enter のホールド
      5 SYSTEM  Bluetooth・ブートローダ・データロガー (td_1 + td_2 同時ホールド)
      6 MOUSE   クリック K/T/N = 左/中/右 (B ホールド)
 
@@ -290,10 +290,10 @@
         default_layer {
             display-name = "BASE";
             bindings = <
-&lt 3 Q              &td_z                 &kp U                &kp COMMA  &kp PERIOD                                                     &kp F  &kp W  &lt 4 R              &kp Y                 &kp P
+&lt 3 Q              &td_z                 &kp U                &kp COMMA  &kp PERIOD                                                     &kp F  &kp W  &lt_scroll 4 R      &kp Y                 &kp P
 &mt LEFT_CONTROL E   &mt LEFT_SHIFT I      &mt LEFT_ALT A       &kp O      &td_minus   &kp EXCLAMATION                  &kp COLON         &kp K  &kp T  &mt LEFT_ALT N      &mt LEFT_SHIFT S      &mt LEFT_CONTROL H
 &td_x                &td_c                 &td_v                &kp L      &kp SLASH   &kp QUESTION                     &kp SEMICOLON     &kp G  &kp D  &kp M               &kp J                 &lt 6 B
-&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &lt 4 ENTER  &td_3 LEFT_ALT DELETE  &td_1 1 TAB  &td_space LEFT_CONTROL SPACE    &td_enter RIGHT_SHIFT ENTER  &td_2 2 BACKSPACE    &mt LEFT_GUI ENTER
+&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &lt_scroll 4 ENTER  &td_3 LEFT_ALT DELETE  &td_1 1 TAB  &td_space LEFT_CONTROL SPACE    &td_enter RIGHT_SHIFT ENTER  &td_2 2 BACKSPACE    &mt LEFT_GUI ENTER
             >;
             sensor-bindings = <&rsr_trans>;
         };
