@@ -13,8 +13,8 @@
      0 BASE    大西配列
      1 FUNC    数字・F キー           (td_1 ホールド)
      2 SYMBOL  記号・カーソル         (td_2 ホールド)
-     3 TENKEY  テンキー・データロガー (Q ホールド。トラックボールはスクロール = minimal-keys_R.overlay の scroll-layers)
-     4 SCROLL  R / 左親指 Enter のホールド
+     3 SCROLL  トラックボールでスクロール (R / 左親指 Enter のホールド。minimal-keys_R.overlay の scroll-layers)
+     4 TENKEY  テンキー・データロガー (Q ホールド)
      5 SYSTEM  Bluetooth・ブートローダ・データロガー (td_1 + td_2 同時ホールド)
      6 MOUSE   クリック K/T/N = 左/中/右 (B ホールド)
 
@@ -290,10 +290,10 @@
         default_layer {
             display-name = "BASE";
             bindings = <
-&lt 3 Q              &td_z                 &kp U                &kp COMMA  &kp PERIOD                                                     &kp F  &kp W  &lt_scroll 4 R      &kp Y                 &kp P
+&lt 4 Q              &td_z                 &kp U                &kp COMMA  &kp PERIOD                                                     &kp F  &kp W  &lt_scroll 3 R      &kp Y                 &kp P
 &mt LEFT_CONTROL E   &mt LEFT_SHIFT I      &mt LEFT_ALT A       &kp O      &td_minus   &kp EXCLAMATION                  &kp COLON         &kp K  &kp T  &mt LEFT_ALT N      &mt LEFT_SHIFT S      &mt LEFT_CONTROL H
 &td_x                &td_c                 &td_v                &kp L      &kp SLASH   &kp QUESTION                     &kp SEMICOLON     &kp G  &kp D  &kp M               &kp J                 &lt 6 B
-&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &lt_scroll 4 ENTER  &td_3 LEFT_ALT DELETE  &td_1 1 TAB  &td_space LEFT_CONTROL SPACE    &td_enter RIGHT_SHIFT ENTER  &td_2 2 BACKSPACE    &mt LEFT_GUI ENTER
+&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &lt_scroll 3 ENTER  &td_3 LEFT_ALT DELETE  &td_1 1 TAB  &td_space LEFT_CONTROL SPACE    &td_enter RIGHT_SHIFT ENTER  &td_2 2 BACKSPACE    &mt LEFT_GUI ENTER
             >;
             sensor-bindings = <&rsr_trans>;
         };
@@ -320,17 +320,6 @@
             sensor-bindings = <&rsr_trans>;
         };
 
-        tenkey_layer {
-            display-name = "TENKEY";
-            bindings = <
-&trans  &kp KP_NUMLOCK  &trans  &trans  &dlog DLOG_FREEZE                                 &kp EQUAL         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS
-&trans  &trans          &trans  &trans  &trans             &trans         &dlog DLOG_CLEAR  &kp KP_DOT        &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS
-&trans  &trans          &trans  &trans  &trans             &marker_a      &marker_b         &kp KP_NUMBER_0   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp ASTERISK
-&trans  &trans          &trans  &trans  &trans             &trans         &trans            &trans                                                               &kp SLASH
-            >;
-            sensor-bindings = <&rsr_trans>;
-        };
-
         scroll_layer {
             display-name = "SCROLL";
             bindings = <
@@ -338,6 +327,17 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans
+            >;
+            sensor-bindings = <&rsr_trans>;
+        };
+
+        tenkey_layer {
+            display-name = "TENKEY";
+            bindings = <
+&trans  &kp KP_NUMLOCK  &trans  &trans  &dlog DLOG_FREEZE                                 &kp EQUAL         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS
+&trans  &trans          &trans  &trans  &trans             &trans         &dlog DLOG_CLEAR  &kp KP_DOT        &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS
+&trans  &trans          &trans  &trans  &trans             &marker_a      &marker_b         &kp KP_NUMBER_0   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp ASTERISK
+&trans  &trans          &trans  &trans  &trans             &trans         &trans            &trans                                                               &kp SLASH
             >;
             sensor-bindings = <&rsr_trans>;
         };
