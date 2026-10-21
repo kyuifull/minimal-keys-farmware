@@ -111,6 +111,54 @@
             label = "DOUBLE_N";
         };
 
+        /* Arrow symbols via Windows Unicode hex input.
+           Requires HKCU\Control Panel\Input Method\EnableHexNumpad = "1"
+           (REG_SZ, then sign out/in) and NumLock on. */
+
+        arrow_left: arrow_left {          /* ← : Alt + KP_PLUS + 2190 (Unicode hex input) */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LEFT_ALT>
+                , <&macro_tap &kp KP_PLUS &kp KP_N2 &kp KP_N1 &kp KP_N9 &kp KP_N0>
+                , <&macro_release &kp LEFT_ALT>
+                ;
+            label = "ARROW_LEFT";
+        };
+
+        arrow_up: arrow_up {          /* ↑ : Alt + KP_PLUS + 2191 (Unicode hex input) */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LEFT_ALT>
+                , <&macro_tap &kp KP_PLUS &kp KP_N2 &kp KP_N1 &kp KP_N9 &kp KP_N1>
+                , <&macro_release &kp LEFT_ALT>
+                ;
+            label = "ARROW_UP";
+        };
+
+        arrow_right: arrow_right {          /* → : Alt + KP_PLUS + 2192 (Unicode hex input) */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LEFT_ALT>
+                , <&macro_tap &kp KP_PLUS &kp KP_N2 &kp KP_N1 &kp KP_N9 &kp KP_N2>
+                , <&macro_release &kp LEFT_ALT>
+                ;
+            label = "ARROW_RIGHT";
+        };
+
+        arrow_down: arrow_down {          /* ↓ : Alt + KP_PLUS + 2193 (Unicode hex input) */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LEFT_ALT>
+                , <&macro_tap &kp KP_PLUS &kp KP_N2 &kp KP_N1 &kp KP_N9 &kp KP_N3>
+                , <&macro_release &kp LEFT_ALT>
+                ;
+            label = "ARROW_DOWN";
+        };
+
         // Data logger markers: stamp the ring buffer + send F13/F14 so the
         // host-side event logger can record the press timestamp for sync.
         marker_a: marker_a {
@@ -162,6 +210,13 @@
             label = "TD_MINUS";
             #binding-cells = <0>;
             bindings = <&kp MINUS>, <&kp TILDE>;
+        };
+
+        td_question: td_question {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_QUESTION";
+            #binding-cells = <0>;
+            bindings = <&kp QUESTION>, <&kp EXCLAMATION>;
         };
 
         /* td_*: tap = key, hold = layer/modifier, tap then hold = key repeat
@@ -259,7 +314,7 @@
             bindings = <
 &kp HASH       &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp AT_SIGN                          &kp HOME     &kp RS(LEFT_ARROW)  &kp UP_ARROW    &kp RS(RIGHT_ARROW)  &kp PAGE_UP
 &kp AMPERSAND  &kp SINGLE_QUOTE   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE  &trans      &trans  &kp END      &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp PAGE_DOWN
-&kp DOLLAR     &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp TILDE       &trans      &trans  &trans       &trans              &trans          &trans               &trans
+&kp DOLLAR     &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp TILDE       &trans      &trans  &trans       &arrow_left         &arrow_up       &arrow_right         &arrow_down
 &trans         &trans             &trans                &trans                 &trans          &trans      &trans  &trans                                                                &trans
             >;
             sensor-bindings = <&rsr_trans>;
