@@ -58,6 +58,8 @@
             bindings = <&double_n>;
             key-positions = <19 20>;
             layers = <0>;
+            /* 既定の 50ms では同時押しが間に合わず成立しにくいので広げる */
+            timeout-ms = <80>;
         };
 
         mo_system {                 /* td_1 + td_2 held together */
