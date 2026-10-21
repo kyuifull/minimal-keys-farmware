@@ -61,6 +61,11 @@
     };
 };
 
+// Lets Studio change the trackball's scroll layers at runtime (driver keeps the value).
+&mouse_runtime_input_processor {
+    scroll-device-name = "trackball@0";
+};
+
 &spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";

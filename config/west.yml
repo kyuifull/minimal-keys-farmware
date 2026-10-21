@@ -9,21 +9,23 @@ manifest:
   projects:
     - name: zmk
       remote: hyhy-masa
-      # Pinned to the Phase 4 cursor-lag fix (mouse delta accumulator, commit B)
-      # built on the diag instruments. Repin to a SHA after Phase 4 validates.
-      revision: aa6ddd443e4618d80518aeeb65022658b1725991
+      # ship/no-diag-assert tip (= minimal-keys v1.0.6+ base). On top of mk-fw-v1.0.2 it adds
+      # the stuck-key fixes (split queue rollback, kscan queue BUILD_ASSERT, short-notify guard),
+      # the Studio USB TX loop fix, and Zephyr v3.5.0+zmk-fixes+mk (CDC ACM TX corruption fix).
+      revision: 938664aa2e65c57e34c17f8f5a27188b8e7cdab9
       import: app/west.yml
     - name: pmw3610-driver-minimal
       remote: hyhy-masa
-      # Pinned to the mk2-ble-diag-phase0 tip at the 2026-07-08 farmware release.
-      revision: 67db342ef94faab994158eecfd99b0fc56b99a52
+      # mk-fw-v1.0.2: runtime scroll layers (settable from Studio) + settings handler fix.
+      revision: 06711b5bc5bfbbcc2861777a93c2c36130288813
       path: modules/pmw3610-driver-minimal
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: e9472d6c
     - name: zmk-module-runtime-input-processor
       remote: hyhy-masa
-      revision: 8103d061
+      # fix/temp-layer-stranded: scroll-layers RPC + auto-mouse temp-layer fixes
+      revision: 5b4fdd42f0adf7e113b040c2763cdfe596c36b17
     - name: zmk-module-ble-management
       remote: hyhy-masa
       revision: 851661cd
@@ -32,15 +34,17 @@ manifest:
       revision: efed4f23
     - name: zmk-module-battery-history
       remote: hyhy-masa
-      revision: 465e53e9
+      # mk/syswq-offload: save work off the system work queue (it stalled split key events 4-5 s)
+      revision: 397f7d96e06de64abc09671aa6fc6130e9ed931c
     - name: zmk-module-settings-rpc
       remote: hyhy-masa
       revision: ad1c995c
     - name: zmk-module-hold-tap-rpc
       remote: hyhy-masa
-      revision: 2a352a2
+      revision: f4795e5cf8e546b7f45b89860619e234900dc83a
     - name: zmk-module-runtime-combos
       remote: hyhy-masa
-      revision: 119de78
+      # main: combo input engine + settings handler rename
+      revision: d6f95a6815849d38a8ecce3865c2d2eb4b286e7b
   self:
     path: config
