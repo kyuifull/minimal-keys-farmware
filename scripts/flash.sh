@@ -76,7 +76,7 @@ flash_one() {
     echo ""
     echo "=== $label ==="
 
-    echo "Waiting for bootloader... (press Layer3 + Q, or double-tap reset)"
+    echo "Waiting for bootloader... (press SYSTEM(TAB+BS長押し) + G, or double-tap reset)"
     while [ ! -d "$VOLUME" ]; do
         sleep 0.5
     done
